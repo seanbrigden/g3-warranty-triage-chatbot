@@ -16,6 +16,39 @@ Built as a vertical slice against a single brand's product line — G3 (Genuine 
 
 ---
 
+## Current status — MVP working, documentation in progress
+
+**Last updated: 3 August 2026**
+
+A working triage agent is built and committed. Sections below that describe
+the tool stack are **out of date** and will be revised — see *Tool selection*
+for what changed.
+
+**What's in the repo now**
+
+- Working conversational triage agent, built in Langflow (self-hosted OSS),
+  running on Anthropic's Claude Haiku 4.5
+- The full triage decision policy as a system prompt (`prompts/`)
+- Exported flow definition (`flow/`) — importable, bring your own API key
+- Canvas and conversation screenshots (`assets/`), including both safety-rule
+  escalation cases
+
+**Not yet built**
+
+- The three integration stubs — the Tools port on the agent is deliberately
+  empty and is where they connect
+- The golden-conversation evaluation run (`evaluation/` has the test set;
+  results are unrecorded)
+- Write-up of tool selection: four visual builders were evaluated before
+  landing on Langflow, for reasons worth documenting
+
+**Note on the stack.** This project no longer uses Azure. It was scoped as an
+Azure build to match the two companion repos; the model now runs on
+Anthropic's API. That was a deliberate change and the reasoning belongs in the
+tool-selection write-up rather than a status note.
+
+---
+
 ## Why this problem
 
 Warranty and returns triage is one of the highest-volume, lowest-margin interactions in outdoor retail. Every ticket has three characteristics that make it a strong automation candidate:
